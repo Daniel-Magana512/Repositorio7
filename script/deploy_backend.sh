@@ -6,7 +6,7 @@ set -x
 
 
 DB_NAME=lamp_db
-PS_USER=lamp_user
+DB_USER=lamp_user
 DB_PASSWORD=lamp_pass
 
 #Creación de la base de datos
@@ -15,9 +15,9 @@ DB_PASSWORD=lamp_pass
 mysql -u root <<< "DROP DATABASE IF EXISTS $DB_NAME"
 mysql -u root <<< "CREATE DATABASE $DB_NAME CHARACTER SET utf8mb4"
 
-mysql -u root <<< "DROP USER IF EXISTS $DB_USER"
-mysql -u root <<< "CREATE USER IF NOT EXISTS '$PS_DB_USER'@'%' IDENTIFIED BY '$PS_DB_PASSWORD'"
-mysql -u root <<< "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$PS_DB_USER'@'%'"
+mysql -u root <<< "DROP USER IF EXISTS $DB_USER@'%'"
+mysql -u root <<< "CREATE USER IF NOT EXISTS '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD'"
+mysql -u root <<< "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%'"
 
 
 # Accedemos al directorio temporal /tmp
