@@ -36,24 +36,28 @@
 
 
   - name: Configuramos las variables de conexión gbd
-    path: /var/www/html/config.php
-    regexp: localhost
-    replace: {{DB_HOST_PRIVATE_IP}}
+    ansible.builtin.replace:
+      path: /var/www/html/config.php
+      regexp: localhost
+      replace: "{{DB_HOST_PRIVATE_IP}}"
 
   - name: Configuramos las variables de conexión gbd
-    path: /var/www/html/config.php
-    regexp: lamp_db
-    replace: DB_NAME
+    ansible.builtin.replace:
+      path: /var/www/html/config.php
+      regexp: lamp_db
+      replace: "{{DB_NAME}}"
 
   - name: Configuramos las variables de conexión gbd
-    path: /var/www/html/config.php
-    regexp: lamp_user
-    replace: DB_USER
+    ansible.builtin.replace:
+      path: /var/www/html/config.php
+      regexp: lamp_user
+      replace: "{{DB_USER}}"
 
   - name: Configuramos las variables de conexión gbd
-    path: /var/www/html/config.php
-    regexp: lamp_pass
-    replace: DB_PASS
+    ansible.builtin.replace:
+      path: /var/www/html/config.php
+      regexp: lamp_pass
+      replace: "{{DB_PASS}}"
 
   - name: Reiniciamos el servidor apache
     service:
