@@ -1,0 +1,67 @@
+---
+- name: Playbook para instalar la pila lamp
+  hosts: benk
+  become: yes
+
+  tasks:
+
+    - name: Descarga del codigo fuente de phpMyAdmin
+      ansible.builtin.get_url:
+        url: https://files.phpmyadmin.net/phpMyAdmin/5.2.0/phpMyAdmin-5.2.0-all-languages.zip
+        dest: /tmp/
+
+    - name: Descarga Unzip
+      apt:
+        name: unzip
+        state: present
+
+    - name: Descomprimir phpMyAdmin de /tmp
+      unarchive:
+        src:  /tmp/phpMyAdmin-5.2.0-all-languages.zip
+        dest: /tmp/
+        remote_src: yes
+    
+    - name: Eiliminacion de phpMyAdmin en /tmp
+      file:
+        path: /tmp/phpMyAdmin-5.2.0-all-languages.zip
+        state: absent
+    
+    - name: Mover la carpeta de phpMyAdmin a /var/www/html/
+      copy:
+        src: /tmp/phpMyAdmin-5.2.0-all-languages/
+        dest: /var/www/html/phpmyadmin
+        remote_src: yes
+
+    - name: Modificacion del usuario propietario del directorio /vars/www/html/phpmyadmin
+      file: 
+        path: /vars/www/html/phpmyadmin
+        state: directory
+        owner: www-data
+        group: www-data
+        recurse: yes
+
+    - name: Instalamos el gestor de paquetes de Python3
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: Instalamos el modulo de pymysql
+      pip:
+        name: pymysql
+        state: present
+
+    - name: Crear una base de datos
+      mysql_db:
+        name: "{{ DB_NAME }}"
+        state: present
+        login_unix_socket: /var/run/mysqld/mysqld.sock
+
+    - name: Creamos un usuario para la Base de datos
+      no_log: true
+      mysql_user:
+        name: "{{ DB_USER }}"
+        password: "{{ DB_PASS }}"
+        priv: "{{ DB_USER }}.*:ALL"
+        state: present
+        login_unix_socket: /var/run/mysqld/mysqld.sock
+
