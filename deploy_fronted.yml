@@ -1,0 +1,16 @@
+---
+- name: Playbook para instalar la pila lamp
+  hosts: front
+  become: yes
+
+  tasks:
+    - name: Actualizar los repositorios
+      apt:
+        update_cache: yes
+
+    - name: Instalar el servidor web Apache
+      apt:
+        name: apache2
+        state: present
+    
+    
