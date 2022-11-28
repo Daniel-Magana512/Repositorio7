@@ -14,6 +14,7 @@
         state: present
     
     - name: Copiamos el archivo de phpinfo de PHP
+      copy:
         src: ../php/info.php
         dest: /var/www/html
         remote_src: yes

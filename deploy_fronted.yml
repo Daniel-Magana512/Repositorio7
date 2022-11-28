@@ -6,60 +6,59 @@
   tasks:
 
   - name: Eliminamos el directorio de instalaciones previas
-      file:
-        path: /tmp/iaw-practica-lamp
-        state: absent
+    file:
+      path: /tmp/iaw-practica-lamp
+      state: absent
     
   - name: Clonamos el repositorio
     git:
       repo: https://github.com/josejuansanchez/iaw-practica-lamp.git
       dest: /tmp/archivos
 
+  - name: Movemos el código fuente de la aplicación
+    copy:
+      src: /tmp/iaw-practica-lamp/src/*
+      dest: /var/www/html
+      remote_src: yes
 
-    - name: Movemos el código fuente de la aplicación
-      copy:
-        src: /tmp/iaw-practica-lamp/src/*
-        dest: /var/www/html
-        remote_src: yes
+  - name: Modificacion del usuario propietario del directorio /www/var/html
+    file: 
+      path: /var/www/html/
+      state: directory
+      owner: www-data
+      group: www-data
+      recurse: yes
 
-    - name: Modificacion del usuario propietario del directorio /www/var/html
-      file: 
-          path: /var/www/html/
-          state: directory
-          owner: www-data
-          group: www-data
-          recurse: yes
-
-   - name: Eliminamos el directorio de instalaciones previas
-     file:
+  - name: Eliminamos el directorio de instalaciones previas
+    file:
       path: /var/www/html/index.html
       state: absent
 
 
-    - name: Configuramos las variables de conexión gbd
-        path: /var/www/html/config.php
-        regexp: localhost
-        replace: {{DB_HOST_PRIVATE_IP}}
+  - name: Configuramos las variables de conexión gbd
+    path: /var/www/html/config.php
+    regexp: localhost
+    replace: {{DB_HOST_PRIVATE_IP}}
 
-    - name: Configuramos las variables de conexión gbd
-        path: /var/www/html/config.php
-        regexp: lamp_db
-        replace: DB_NAME
+  - name: Configuramos las variables de conexión gbd
+    path: /var/www/html/config.php
+    regexp: lamp_db
+    replace: DB_NAME
 
-    - name: Configuramos las variables de conexión gbd
-        path: /var/www/html/config.php
-        regexp: lamp_user
-        replace: DB_USER
+  - name: Configuramos las variables de conexión gbd
+    path: /var/www/html/config.php
+    regexp: lamp_user
+    replace: DB_USER
 
-    - name: Configuramos las variables de conexión gbd
-        path: /var/www/html/config.php
-        regexp: lamp_pass
-        replace: DB_PASS
+  - name: Configuramos las variables de conexión gbd
+    path: /var/www/html/config.php
+    regexp: lamp_pass
+    replace: DB_PASS
 
-    - name: Reiniciamos el servidor apache
-      service:
-        name: apache2
-        state: restarted 
+  - name: Reiniciamos el servidor apache
+    service:
+      name: apache2
+      state: restarted 
 
 
 
