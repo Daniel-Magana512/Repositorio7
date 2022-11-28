@@ -1,0 +1,24 @@
+---
+- name: Playbook para instalar la pila lamp
+  hosts: front
+  become: yes
+
+  tasks:
+    - name: Actualizar los repositorios
+      apt:
+        update_cache: yes
+
+    - name: Instalar el servidor web Apache
+      apt:
+        name: apache2
+        state: present
+    
+    - name: Copiamos el archivo de phpinfo de PHP
+        src: ../php/info.php
+        dest: /var/www/html
+        remote_src: yes
+
+    - name: Borramos el archivo de index.html que está en el directorio /var/www/html
+      file:
+        path: /var/www/html/index.html
+        state: absent
