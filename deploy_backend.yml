@@ -1,6 +1,6 @@
 ---
 - name: Playbook para instalar la pila lamp
-  hosts: benk
+  hosts: bak
   become: yes
 
   tasks:
