@@ -4,3 +4,33 @@
   become: yes
 
   tasks:
+
+  - name: Eliminamos el directorio de instalaciones previas
+      file:
+        path: /tmp/iaw-practica-lamp
+        state: absent
+    
+  - name: Clonamos el repositorio
+    git:
+      repo: https://github.com/josejuansanchez/iaw-practica-lamp.git
+      dest: /tmp/archivos
+
+
+    - name: Movemos el código fuente de la aplicación
+      copy:
+        src: /tmp/iaw-practica-lamp/src/*
+        dest: /var/www/html
+        remote_src: yes
+
+    - name: Modificacion del usuario propietario del directorio /www/var/html
+      file: 
+          path: /var/www/html/
+          state: directory
+          owner: www-data
+          group: www-data
+          recurse: yes
+
+   - name: Eliminamos el directorio de instalaciones previas
+     file:
+      path: /var/www/html/index.html
+      state: absent

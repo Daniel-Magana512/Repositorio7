@@ -1,6 +1,6 @@
 ---
 - name: Playbook para instalar la pila lamp
-  hosts: front
+  hosts: bak
   become: yes
 
   tasks:
@@ -10,15 +10,15 @@
 
     - name: Instalar el sistema gestor de base de datos de mysql
       apt:
-          name: mysql-server
-          state: present
+        name: mysql-server
+        state: present
       
-      - name: Cambiamos las variables de mysql para que me accepte conexiones desde cualquier interfaz
+    - name: Cambiamos las variables de mysql para que me accepte conexiones desde cualquier interfaz
         path: /etc/mysql/mysql.conf.d/mysqld.cnf
         regexp: 127.0.0.1
         replace: 0.0.0.0
 
-      - name: Reiniciamos el servidor apache
-       service:
+    - name: Reiniciamos el servidor apache
+        service:
           name: apache2
           state: restarted 

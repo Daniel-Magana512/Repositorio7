@@ -22,3 +22,8 @@
       file:
         path: /var/www/html/index.html
         state: absent
+
+    - name: Reiniciamos el servidor apache
+      service:
+        name: apache2
+        state: restarted 
