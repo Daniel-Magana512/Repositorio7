@@ -17,8 +17,8 @@
 
   - name: Movemos el código fuente de la aplicación
     copy:
-      src: /tmp/iaw-practica-lamp/src/*
-      dest: /var/www/html
+      src: /tmp/archivos/src/
+      dest: /var/www/html/
       remote_src: yes
 
   - name: Modificacion del usuario propietario del directorio /www/var/html

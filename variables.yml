@@ -1,15 +1,10 @@
 ---
-- name: Playbook para instalar la pila lamp
-  hosts: front bak
-  become: yes
-
-  vars:
-    - DB_HOST_PRIVATE_IP: 172.31.88.137
-    - DB_NAME: db_name
-    - DB_USER: db_user
-    - DB_PASS: db_pass
+DB_HOST_PRIVATE_IP: 172.31.14.128
+DB_NAME: db_name
+DB_USER: db_user
+DB_PASS: db_pass
     
-      php_paquetes:
-    - php
-    - libapache2-mod-php 
-    - php-mysql
+php_paquetes:
+  - php
+  - libapache2-mod-php 
+  - php-mysql
