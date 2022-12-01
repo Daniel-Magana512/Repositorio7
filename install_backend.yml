@@ -12,14 +12,14 @@
     apt:
       name: mysql-server
       state: present
-      
+            
   - name: Cambiamos las variables de mysql para que me accepte conexiones desde cualquier interfaz
     ansible.builtin.replace:
       path: /etc/mysql/mysql.conf.d/mysqld.cnf
       regexp: 127.0.0.1
       replace: 0.0.0.0
 
-  - name: Reiniciamos el servidor apache
+  - name: Reiniciamos el servidor mysql
     service:
-      name: apache2
+      name: mysql
       state: restarted 

@@ -12,7 +12,12 @@
       apt:
         name: apache2
         state: present
-    
+
+    - name: Instalar PHP 
+      apt:
+        name: "{{php_paquetes}}"
+        state: present
+
     - name: Copiamos el archivo de phpinfo de PHP
       copy:
         src: ../php/info.php

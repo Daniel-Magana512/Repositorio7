@@ -8,3 +8,8 @@
     - DB_NAME: db_name
     - DB_USER: db_user
     - DB_PASS: db_pass
+    
+      php_paquetes:
+    - php
+    - libapache2-mod-php 
+    - php-mysql

@@ -61,7 +61,28 @@
       mysql_user:
         name: "{{ DB_USER }}"
         password: "{{ DB_PASS }}"
-        priv: "{{ DB_USER }}.*:ALL"
+        priv: "{{ DB_NAME }}.*:ALL"
         state: present
         login_unix_socket: /var/run/mysqld/mysqld.sock
 
+
+    - name: Clonación de repositorio en /tmp/repo
+      git:
+        clone: true
+        dest: /tmp/repo
+        repo: https://github.com/josejuansanchez/iaw-practica-lamp.git
+
+    - name: Borramos el archivo en caso de que exista
+      ansible.builtin.file:
+        path: /tmp/iaw-practica-lamp
+        state: absent
+
+    - name: Modificación del contenido de la base de datos
+      ansible.builtin.replace:
+        path: /tmp/repo/db/database.sql
+        regexp: lamp_db
+        replace: "{{ DB_NAME }}"
+
+    - name: Añadimos la base de datos
+      ansible.builtin.shell:
+        mysql -u root < /tmp/repo/db/database.sql
