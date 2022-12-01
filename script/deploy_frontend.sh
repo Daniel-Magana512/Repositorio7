@@ -28,7 +28,7 @@ rm /var/www/html/index.html
 sed -i "s/localhost/$DB_HOST_PRIVATE_IP/" /var/www/html/config.php
 sed -i "s/lamp_db/$DB_NAME/" /var/www/html/config.php
 sed -i "s/lamp_user/$DB_USER/" /var/www/html/config.php
-sed -i "s/lamp_pass/$DB_PASS/" /var/www/html/config.php
+sed -i "s/lamp_password/$DB_PASS/" /var/www/html/config.php
 
 
 # Apuntes mysql -u lamp_user -p -h 172.31.80.53

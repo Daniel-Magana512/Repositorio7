@@ -23,11 +23,6 @@
       name: "{{php_paquetes}}"
       state: present
 
-  - name: Borramos el archivo de index.html que está en el directorio /var/www/html
-    file:
-      path: /var/www/html/index.html
-      state: absent
-
   - name: Reiniciamos el servidor apache
     service:
       name: apache2
