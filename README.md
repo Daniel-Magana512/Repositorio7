@@ -87,4 +87,14 @@ Configuramos las variables para la base de datos dentro del archivo config.php q
 
 * **DB_NAME** Ponemos el nombre de la base de datos que le hemos dicho en el archivo de las variables, el contenido de esa variable se insertará al archivo config.php en el lugar de lamp_db.
 
-* **
+![](./fotos/foto_6.PNG)
+
+
+* **DB_USER** Buscamos la variable db_user (este apartado es para definir los usuarios) y cambiamos esa variable por el contenido que hemos creado con anterioridad.
+
+* **Ahora, cambiaremos los permisos de los archivos **/var/www/html** poniendo de propietarios www-data al igual que de grupo.**
+
+* **Borramos el index.html para que no me coja por defecto el archivo index.html, para que me coja la página index.php**
+
+* **Reinicamos el servidor de apache**
+
