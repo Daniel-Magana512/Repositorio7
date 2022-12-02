@@ -81,7 +81,7 @@ Declaramos al grupo que le corresponde en este caso es para **front**
 
 * **Movemos los archivos de src al directorio /var/www/html**
 
-Configuramos las variables para la base de datos dentro del archivo config.php que está en el direcotrio /var/www/html/
+Configuramos las variables para la base de datos dentro del archivo config.php que está en el direcotrio /var/www/html/ , es importante entender que lo único que voy a hacer aquí es cambiar el contenido poniendo información sobre el back-end.
 
 * **DB_HOST_PRIVATE_IP** tendrá la ip privada de mysql (del servidor), le decimos que me busque el carácter localhost dentro del archivo y que me lo reemplace por esta variable.
 
@@ -98,3 +98,24 @@ Configuramos las variables para la base de datos dentro del archivo config.php q
 
 * **Reinicamos el servidor de apache**
 
+## Explicación de back-end (Configuración)
+
+En este paso ponemos creamos y configuramos la base de datos y demás.
+
+![](./fotos/foto_7.PNG)
+
+* **Hacemos un llamamiento al archivo de las variables**
+
+* **En referencia al anterior paso de este grupo podría estár la clonación así que la borramos**
+
+* **Descargamos el programa con el que podremos descomprimir**
+
+* **Instalamos el gestor de paquetes de Python3**
+
+* **Ahora aprovecharemos el instalador de paquetes para instalar pymysql**
+
+Los siguientes pasos es para la configuración de la base de datos de la base de datos.
+
+* **Crear la base de datos, con la variables definidas en el archivo de las variables, crearemos una base de datos con el nombre establecido**
+
+![](./fotos/foto_8.PNG)

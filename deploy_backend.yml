@@ -1,5 +1,5 @@
 ---
-- name: Playbook para instalar la pila lamp
+- name: Playbook para instalar la pila backend
   hosts: bak
   become: yes
 
@@ -50,13 +50,6 @@
         clone: true
         dest: /tmp/repo
         repo: https://github.com/josejuansanchez/iaw-practica-lamp.git
-
-    - name: Se mueve el contenido de /tmp/lamp/src a /var/www/html
-      ansible.builtin.copy:
-        src: /tmp/repo/src/
-        dest: /var/www/html/
-        remote_src: true
-        mode: 0755
 
     - name: Modificación del contenido de la base de datos
       ansible.builtin.replace:
