@@ -92,6 +92,8 @@ Configuramos las variables para la base de datos dentro del archivo config.php q
 
 * **DB_USER** Buscamos la variable db_user (este apartado es para definir los usuarios) y cambiamos esa variable por el contenido que hemos creado con anterioridad.
 
+* **DB_PASS** ponemos la contraseña.
+
 * **Ahora, cambiaremos los permisos de los archivos **/var/www/html** poniendo de propietarios www-data al igual que de grupo.**
 
 * **Borramos el index.html para que no me coja por defecto el archivo index.html, para que me coja la página index.php**
@@ -126,7 +128,7 @@ Los siguientes pasos es para la configuración de la base de datos de la base de
 
 * **Añadimos la base de datos al mysql**
 
-* **Reiniamos apache**
+* **Reiniamos mysql**
 
 ## ¿Cómo sé que me funciona?
 
@@ -137,7 +139,7 @@ Lo primero de todo tenfo que poner en el navegador la IP de front-end que me lle
 
 Lo siguiente es que debería dejarme conectar desde front-end al back-end de manera que entraría con el usuario que hemos creado(me refiero al acceso de mysql).
 
-Ponemos el comando **mysql -u db_user -p -h (ip_mysql_publica).**
+Ponemos el comando **mysql -u db_user -p -h (ip_mysql_publica).
 
 db_user es el usuario que hemos creado.
 
