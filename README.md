@@ -128,7 +128,7 @@ Los siguientes pasos es para la configuración de la base de datos de la base de
 
 * **Reiniamos apache**
 
-## ¿Cómo se que me funciona?
+## ¿Cómo sé que me funciona?
 
 Lo primero de todo tenfo que poner en el navegador la IP de front-end que me llevará directamente, a la página que me dejará añadir información.
 
