@@ -5,7 +5,7 @@ Vamos a configurar dos máquinas virtuales para que en una se encargue de gestio
 La arquitectura estará formada por:
 
 * **Una capa de front-end, formada por un servidor web con Apache HTTP Server.**
-* **Una capa de back-end, formada por un servidor MySQL.**
+* **Una capa de back-end, formada por un servidor MySQL. (hay que añadir el puerto 3306, es el puerto de mysql)**
 
 ## Primeros pasos
 
