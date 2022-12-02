@@ -11,7 +11,7 @@
 
     - name: Borramos el archivo en caso de que exista
       ansible.builtin.file:
-        path: /tmp/iaw-practica-lamp
+        path: /tmp/repo
         state: absent
 
     - name: Descarga Unzip
@@ -44,6 +44,8 @@
         priv: "{{ DB_NAME }}.*:ALL,GRANT"
         state: present
         login_unix_socket: /var/run/mysqld/mysqld.sock
+  
+
 
     - name: Clonación de repositorio en /tmp/repo
       git:
@@ -61,7 +63,7 @@
       ansible.builtin.shell:
         mysql -u root < /tmp/repo/db/database.sql
 
-    - name: Reiniciamos el servidor apache
+    - name: Reiniciamos el servidor mysql
       service:
-        name: apache2
+        name: mysql
         state: restarted 
