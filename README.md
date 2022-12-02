@@ -137,7 +137,7 @@ Lo primero de todo tenfo que poner en el navegador la IP de front-end que me lle
 
 Lo siguiente es que debería dejarme conectar desde front-end al back-end de manera que entraría con el usuario que hemos creado(me refiero al acceso de mysql).
 
-Ponemos el comando **mysql -u db_user -p -h (ip_mysql_publica).
+Ponemos el comando **mysql -u db_user -p -h (ip_mysql_publica).**
 
 db_user es el usuario que hemos creado.
 
