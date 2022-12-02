@@ -127,3 +127,12 @@ Los siguientes pasos es para la configuración de la base de datos de la base de
 * **Añadimos la base de datos al mysql**
 
 * **Reiniamos apache**
+
+## ¿Cómo se que me funciona?
+
+Lo primero de todo tenfo que poner en el navegador la IP de front-end que me llevará directamente, a la página que me dejará añadir información.
+
+
+![](./fotos/foto_9.PNG)
+
+Lo siguiente es que debería dejarme conectar desde front-end al back-end de manera que entraría con el usuario que hemos creado(me refiero al acceso de mysql).
