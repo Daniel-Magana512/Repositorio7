@@ -45,8 +45,6 @@
         state: present
         login_unix_socket: /var/run/mysqld/mysqld.sock
   
-
-
     - name: Clonación de repositorio en /tmp/repo
       git:
         clone: true
