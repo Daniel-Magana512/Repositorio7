@@ -1,5 +1,5 @@
 ---
-- name: Playbook para instalar la pila lamp
+- name: Playbook para instalar la pila frontend
   hosts: front
   become: yes
 
