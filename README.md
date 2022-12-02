@@ -69,4 +69,22 @@ Con la instalación de mysql, se nos generará un archivo que tendremos que modi
 * **Reiniciamos el servidor de apache**
 
 
+## Explicación de front-end (Configuración)
 
+Declaramos al grupo que le corresponde en este caso es para **front**
+
+![](./fotos/foto_5.PNG)
+
+* **Llamamos a los archivos de las variables**
+
+* **Voy a hacer un git clone del repositorio del profesor donde estará el archivo donde podremos añadir información a la base de datos desde el navegador, aunque antes intentaré eliminarlo en el caso de que esté en el equipo**
+
+* **Movemos los archivos de src al directorio /var/www/html**
+
+Configuramos las variables para la base de datos dentro del archivo config.php que está en el direcotrio /var/www/html/
+
+* **DB_HOST_PRIVATE_IP** tendrá la ip privada de mysql (del servidor), le decimos que me busque el carácter localhost dentro del archivo y que me lo reemplace por esta variable.
+
+* **DB_NAME** Ponemos el nombre de la base de datos que le hemos dicho en el archivo de las variables, el contenido de esa variable se insertará al archivo config.php en el lugar de lamp_db.
+
+* **
