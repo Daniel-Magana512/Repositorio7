@@ -119,3 +119,11 @@ Los siguientes pasos es para la configuración de la base de datos de la base de
 * **Crear la base de datos, con la variables definidas en el archivo de las variables, crearemos una base de datos con el nombre establecido**
 
 ![](./fotos/foto_8.PNG)
+
+* **Añadimos un usuario a la base de datos, con su contraseña y establecemos los privilegios que tendrá dicho usuario en la base de datos.**
+
+* **Modificación del contenido de la base de datos, cambiamso el nombre de la base de datos por dentro, hacemos que nos busque su nombre actual y que lo intercambie.**
+
+* **Añadimos la base de datos al mysql**
+
+* **Reiniamos apache**
